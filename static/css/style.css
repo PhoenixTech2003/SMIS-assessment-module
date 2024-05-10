@@ -7,6 +7,9 @@
     font-family: roboto;
     src: url("../fonts/Roboto/Roboto-Black.ttf");
 }
+table{
+    border-collapse: collapse;
+}
 body{
     height: 100dvh;
     display: grid;
@@ -15,9 +18,37 @@ body{
 
 }
 main{
+    padding: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 80px;
 }
+
+
+
+main > div > section:first-child{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    height: 50px;
+    border: none;
+    overflow: hidden;
+}
+
+main > div > section{
+    display: grid;
+    border: 5px solid black;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    column-gap: 5px;
+    justify-items: start;
+    height: 500px;
+    overflow: auto;
+    padding: 20px;
+}
+
+
+
+
+
 header{
     display: flex;
     justify-content: center;
@@ -25,4 +56,40 @@ header{
     padding: 2rem;
     color: #fff;
     background-color: #1D9ED9;
+}
+
+form{
+    display: flex;
+    font-size: 1.2rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+form > div{
+    display: flex;
+    gap: 1rem;
+    
+}
+
+form div div{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 2rem;
+}
+
+form input, form select{
+    padding: 10px 30px;
+    border-radius: 15px;
+}
+
+form button{
+    
+    border: none;
+    background-color: #1D9ED9;
+    color: #fff;
+    padding: 15px 20px;
+    font-weight: bolder;
+    font-size: 1rem;
 }
