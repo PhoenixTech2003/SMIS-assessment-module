@@ -9,37 +9,83 @@
 <body>
     <header><h1>SMIS ASSESSMENT MODULE</h1></header>
     <main>
-        <form action="">
+        <form action="/add_student" method="get">
+            <h2>ADD STUDENT</h2>
             <div>
-                <lable>First name</lable>
-                <lable>last name</lable>
-                <lable>Registration Number</lable>
-                <label>Program</label>
-                <label>Class</label>
-                <label>Gender</label>
+                <div>
+                    <lable>First name</lable>
+                    <input type="text" name="first_name">
+                    <lable>last name</lable>
+                    <input type="text" name="last_name">
+                    <lable>Registration Number</lable>
+                    <input type="text" name="reg_no">
+
+
+                    <label>Program</label>
+                    <select name="program" id="">
+                        <option value="program" disabled selected>Program</option>
+                        {% for program in programs %}
+                          <option value={{program}}>{{program}}</option>
+                        {%endfor%}
+
+                    </select>
+
+
+                    <label>Class</label>
+                    <select name="class" id="">
+                        <option value="Class" disabled selected>Class</option>
+                        {% for class in classes %}
+                          <option value={{class}}>{{class}}</option>
+                        {%endfor%}
+                    </select>
+
+                    <label>Gender</label>
+                    <select name="gender" id="">
+                        <option value="gender" disabled selected>Gender</option>
+                        {% for genders in gender %}
+                          <option value={{genders}}>{{genders}}</option>
+                        {%endfor%}
+                    </select>
+                    <button>ADD</button>
+                    
+                </div>
                 
-            </div>
-            <div>
-                <input type="text" name="first_name">
-                <input type="text" name="last_name">
-                <input type="text" name="reg_no">
-                <select name="" id=""></select>
-                <select name="" id=""></select>
-                <select name="" id=""></select>
 
             </div>
             
+            
         </form>
-        <table>
-            <tr>
-                <th>Reg No</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Gender</th>
-                <th>Program</th>
-                <th>Class</th>
-            </tr>
-        </table>
+        
+        <div>
+            <section>
+
+                <div><h3>Reg No</h3></div>
+                <div><h3>First Name</h3></div>
+                <div><h3>Last Name</h3></div>
+                <div><h3>Gender</h3></div>
+                <div><h3>Program</h3></div>
+                <div><h3>Class</h3></div>
+
+            </section>
+                
+            
+            <section>
+
+
+                {% for row in record %}
+                    <div><p>{{row['student_id']}}</p></div>
+                    <div><p>{{row['first_name']}}</p></div>
+                    <div><p>{{row['last_name']}}</p></div>
+                    <div><p>{{row['gender']}}</p></div>
+                    <div><p>{{row['program_id']}}</p></div>
+                    <div><p>{{row['class_id']}}</p></div>
+                {% endfor%}
+
+            </section>
+
+  
+            
+        </div>
     </main>
     
 </body>
